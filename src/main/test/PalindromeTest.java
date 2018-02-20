@@ -8,6 +8,7 @@ import ru.dementev.palindrome.Palindrome;
 public class PalindromeTest {
     @Test
     public void testPalindrome() {
+
         Assert.assertEquals(Palindrome.check(2345), 1);
         Assert.assertEquals(Palindrome.check(65), 1);
         Assert.assertEquals(Palindrome.check(189), 2);
@@ -16,11 +17,10 @@ public class PalindromeTest {
         Assert.assertEquals(Palindrome.check(10), 1);
 
     }
-
-    @Test(expected = RuntimeException.class)
+    @Test
     public void testForNegativeNumber() {
-        Palindrome.check(-121);
-        Palindrome.check(-13121);
+        Assert.assertEquals(Palindrome.check(-121),0);
+        Assert.assertEquals(Palindrome.check(-1315125),3);
     }
 
     @Test(expected = RuntimeException.class)

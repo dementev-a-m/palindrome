@@ -7,9 +7,6 @@ public class Palindrome {
 
     public static int check(int p) {
 
-        if (p < 0)
-            throw new RuntimeException();
-
         int count = 0;
         int[] array = new int[10];
         boolean check = true;
@@ -28,6 +25,7 @@ public class Palindrome {
 
             if (!check) {
                 p = sum(array, copyP, i);
+
                 check = true;
                 count++;
             } else
