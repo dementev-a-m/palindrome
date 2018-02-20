@@ -4,27 +4,39 @@ package ru.dementev.palindrome;
  * Created by adementev on 20.02.2018.
  */
 public class Palindrome {
+
     public static int check(int p) {
+
+        if (p < 0)
+            throw new RuntimeException();
+
         int count = 0;
         int[] array = new int[10];
         boolean check = true;
+
         while (count < 20 && check) {
             int copyP = p;
             int i = 0;
+
             while (p != 0) {
                 array[i] = p % 10;
                 p /= 10;
                 i++;
             }
+
             check = checkPalindrome(array, i);
+
             if (!check) {
                 p = sum(array, copyP, i);
                 check = true;
                 count++;
             } else
                 break;
-
         }
+
+        if (count >= 20)
+            throw new RuntimeException();
+
         return count;
     }
 
@@ -45,14 +57,4 @@ public class Palindrome {
         }
         return true;
     }
-
-    public static void main(String[] args) {
-        System.out.println(check(2345));
-        System.out.println(check(65));
-        System.out.println(check(181));
-        System.out.println(check(189));
-        System.out.println(check(241415136));
-    }
-
-
 }
