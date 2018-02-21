@@ -5,13 +5,13 @@ package ru.dementev.palindrome;
  */
 public class Palindrome {
 
-    public static int check(int p) {
+    private Palindrome() {
+    }
 
+    public static int check(int p) {
         int count = 0;
         int[] array = new int[10];
-        boolean check = true;
-
-        while (count < 20 && check) {
+        while (count < 20) {
             int copyP = p;
             int i = 0;
 
@@ -20,13 +20,8 @@ public class Palindrome {
                 p /= 10;
                 i++;
             }
-
-            check = checkPalindrome(array, i);
-
-            if (!check) {
+            if (!checkPalindrome(array, i)) {
                 p = sum(array, copyP, i);
-
-                check = true;
                 count++;
             } else
                 break;
